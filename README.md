@@ -7,3 +7,6 @@ functions included :
 2) REMOVAL OF VALUES FROM BACK AND FRONT
 3) CLEARING ALL VALUES IN ONE GO
 4) REVERSING USING STACK AND ANOTHER LINKED LIST
+#PALINDROME
+checks whether a string is palindrome or not by utilizing queue
+ 
