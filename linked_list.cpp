@@ -202,19 +202,57 @@ public:
         }
         temp->Link = NULL;
     }
+    
+    int Size()
+    {
+    	Node * ptr  = this -> Head;
+    	int rtn = 0;
+    	while(ptr != NULL)
+    	{
+    		ptr = ptr -> Link;
+    		rtn ++;
+		}
+		return rtn;
+	}
+    
+    void Sort()
+    {
+    	Node * Next;
+    	Node * Current;
+    	for(int i = 0 ; i < this -> Size();i++)
+    	{
+    		Current = Head;
+    		Next = Current -> Link;
+    		for(int j = 0; j < Size() - i - 1; j++)
+    		{
+    			if(Current -> Data > Next -> Data)
+    			{
+    				int temp = Current -> Data;
+    				Current -> Data = Next -> Data;
+    				Next -> Data = temp;
+				}
+				Current = Current -> Link;
+				Next = Next -> Link;
+			}
+		}
+	}
 };
 int main()
 {
     Linked_List l1;
-    l1.Add_To_Back(12);
-    l1.Add_To_Back(24);
-    l1.Add_To_Back(36);
-    cout<<"BEFORE REVERSING \n"<<endl;
+    l1.Add_To_Back(120);
+    l1.Add_To_Back(4);
+    l1.Add_To_Back(6);
+    l1.Add_To_Back(16);
+	cout<<"BEFORE REVERSING \n"<<endl;
     l1.Display();
-    l1.Reverse_Using_Stack();
+    /*
+	l1.Reverse_Using_Stack();
     cout<<"AFTER REVERSING \n"<<endl;
     l1.Display();
     cout<<"LOOK AT ADDRESSES"<<endl<<"THEY CHANGED ?????"<<endl;
-    cout<<"TELL ME ????"<<endl;
-    return 0;
+    cout<<"TELL ME ????"<<endl; */
+    l1.Sort();
+    l1.Display();
+	return 0;
 }
